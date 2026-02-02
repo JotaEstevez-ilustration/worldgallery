@@ -1,9 +1,9 @@
 # Project Brief
 
-**Student:** [Your Name]  
-**Handle:** @[your-github-username]  
-**Course:** Web Design 2025 · Fall  
-**Date:** [Fill in date - Week 2]
+**Student:** [Juanjo Estévez]  
+**Handle:** @[JotaEstevez-illustration]  
+**Course:** Máster de Ilustración, UDIT; 2026  
+**Date:** [02/02/2026]
 
 ---
 
@@ -11,15 +11,15 @@
 
 ### What are you building?
 
-<!-- Describe your project in 2-3 sentences -->
+<!-- Un portfolio que refleje en su forma de prensentarse la naturaleza de su contenido -->
 
 ### Who is it for?
 
-<!-- Define your target audience -->
+<!-- tanto para posibles clientes como para aquellas personas que disfrutan de mi trabajo y desean conocerlo mejor-->
 
 ### Why does it matter?
 
-<!-- Explain the purpose and value of your project -->
+<!-- La presentación del trabajo es igual o incluso más importante que el propio trabajo en sí mismo. De hay viene la importancia de aprender esta herramienta. Herramienta con la que desarrollar un portfolio correcto -->
 
 ---
 
@@ -27,15 +27,15 @@
 
 ### Core Technologies
 
-- [ ] HTML5 (semantic markup)
-- [ ] CSS3 (responsive design)
-- [ ] JavaScript (if applicable)
+- [x] HTML5 (semantic markup)
+- [x] CSS3 (responsive design)
+- [x] JavaScript (if applicable)
 - [ ] Other: ****\_\_\_****
 
 ### Accessibility Goals
 
-- [ ] Semantic HTML structure
-- [ ] Proper heading hierarchy
+- [x] Semantic HTML structure
+- [x] Proper heading hierarchy
 - [ ] Alt text for images
 - [ ] Keyboard navigation support
 - [ ] Color contrast compliance
@@ -44,9 +44,9 @@
 ### Responsive Design Strategy
 
 - [ ] Mobile-first approach
-- [ ] Flexible grid system
-- [ ] Scalable typography
-- [ ] Optimized images
+- [x] Flexible grid system
+- [x] Scalable typography
+- [x] Optimized images
 - [ ] Touch-friendly interactions
 
 ---
@@ -55,9 +55,9 @@
 
 ### Key Sections/Pages
 
-1.
-2.
-3.
+1. Portfolio / Gallery — grid principal con filtros por proyecto y etiquetas; cada tarjeta muestra título, año y formato; vista detallada por proyecto con slideshow.
+2. About — biografía breve, habilidades y clientes seleccionados.
+3. Contact / Commissions — formulario sencillo + CTA para encargar trabajo.
 
 ### Content Sources
 
@@ -76,10 +76,18 @@
 ### Visual Style
 
 <!-- Describe your aesthetic approach -->
+-directo
+-abstracto
+-suave
+-fresco
 
 ### Color Palette
 
 <!-- List your main colors -->
+-negro
+-blanco
+-amarillo
+-rosa
 
 ### Typography
 
@@ -88,6 +96,14 @@
 ### Inspiration/References
 
 <!-- List 2-3 websites or designs that inspire your approach -->
+-https://rollo-press.com/
+-https://www.traddmoorecomics.com/
+
+
+### Decisiones concretas para la galería (compatibles con el brief)
+
+- Layout: Grid flexible con modulación de escala — usar CSS Grid con filas auto-fill y tarjetas que pueden expandir a un modo “showcase” (pieza a pantalla completa) al hacer click. Esto permite alternar ritmo visual (piezas pequeñas vs. piezas protagonistas) y responde a la meta de "Flexible grid system" en el brief.
+- Contenido por proyecto: incluir título, año, técnicas (tags), breve descripción de 1-2 frases y una galería secundaria (imágenes en alta resolución con lazy-loading). Justificado por la necesidad de presentar trabajo a clientes y por el objetivo de "Core content in place" en Week 4 Goals.
 
 ---
 
@@ -95,18 +111,18 @@
 
 ### Week 4 Goals
 
-- [ ] Functional homepage
-- [ ] Basic responsive layout
+- [x] Functional homepage
+- [x] Basic responsive layout
 - [ ] Core content in place
 - [ ] Accessible markup
 
 ### Final Project Goals
 
-- [ ] Fully responsive across devices
+- [x] Fully responsive across devices
 - [ ] Meets WCAG 2.1 AA standards
-- [ ] Fast loading performance
-- [ ] Complete content
-- [ ] Polished visual design
+- [x] Fast loading performance
+- [x] Complete content
+- [x] Polished visual design
 
 ---
 

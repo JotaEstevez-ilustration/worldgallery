@@ -223,4 +223,20 @@ _Example: Master CSS Grid for complex layouts, implement smooth scroll animation
 
 ---
 
+## Analisis de portfolios seleccionados
+
+URLs analizadas:
+
+- https://rollo-press.com/
+- https://www.traddmoorecomics.com/
+- (Nota: sólo se suministraron 2 URLs; si hay una tercera, añadirla aquí para ampliar el análisis)
+
+Patrones transferibles (no copiar estética — adaptar conceptos):
+
+- Priorizar imágenes grandes y sin distracciones: utilizar composiciones de imagen que ocupen el foco de la página y reduzcan elementos UI visibles para que la obra hable por sí misma.
+- Jerarquía basada en escala y ritmo: alternar piezas pequeñas y piezas a pantalla completa para crear ritmo visual y guiar la atención del usuario por la galería.
+- Interacciones sutiles y significativas: micro-animaciones en hover/entradas y carga perezosa (lazy-loading) con placeholder suave para mejorar percepción de velocidad sin recargar la experiencia.
+
+---
+
 **Remember**: Inspiration is about finding what resonates with you and your project goals. Don't copy—synthesize ideas into something uniquely yours!
