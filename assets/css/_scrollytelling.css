@@ -12,7 +12,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--gradient-hero);
+	/*background: var(--gradient-hero);*/
+	background-image: url(https://ik.imagekit.io/2xgzbkkv3/dibujo3.jpg?updatedAt=1770659593802);
 	text-align: center;
 	padding: var(--space-2xl);
 }
