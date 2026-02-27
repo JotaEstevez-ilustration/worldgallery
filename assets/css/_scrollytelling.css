@@ -366,7 +366,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--gradient-hero);
+	background:  rgba(0, 0, 0, 0.9);
 	text-align: center;
 	padding: var(--space-2xl);
 }
@@ -386,7 +386,7 @@
 
 .cta-button {
 	background: white;
-	color: #667eea;
+	color: #050505;
 	padding: var(--space-md) var(--space-3xl);
 	border: none;
 	border-radius: var(--radius-full);
