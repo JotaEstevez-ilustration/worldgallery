@@ -38,23 +38,8 @@ document.querySelectorAll('[data-observe]').forEach((section) => {
 	observer.observe(section);
 });
 
-// ===== SCROLL PROGRESS INDICATOR =====
-// PEDAGOGICAL NOTE: Shows user how far they've scrolled through the page
 
-function updateScrollProgress() {
-	const windowHeight = window.innerHeight;
-	const documentHeight = document.documentElement.scrollHeight;
-	const scrollTop = window.scrollY;
 
-	// Calculate percentage scrolled
-	const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
-
-	// Update progress display
-	const progressElement = document.getElementById('progress');
-	if (progressElement) {
-		progressElement.textContent = Math.round(scrollPercent);
-	}
-}
 
 // Listen for scroll events (throttled by browser's requestAnimationFrame)
 window.addEventListener('scroll', updateScrollProgress);
