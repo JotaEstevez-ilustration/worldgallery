@@ -100,3 +100,71 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 console.log('✅ Scrollytelling initialized');
 console.log(`📊 Observing ${document.querySelectorAll('[data-observe]').length} sections`);
+
+// ===== GALLERY LIGHTBOX =====
+(function(){
+	const gallerySelector = '.gallery .grid';
+	const grid = document.querySelector(gallerySelector);
+	if(!grid) return;
+
+	// Create lightbox elements
+	const lightbox = document.createElement('div');
+	lightbox.className = 'lightbox';
+	lightbox.setAttribute('aria-hidden', 'true');
+	lightbox.innerHTML = `
+		<button class="lightbox__close" aria-label="Cerrar (Esc)">✕</button>
+		<img class="lightbox__img" src="" alt="">
+	`;
+	document.body.appendChild(lightbox);
+
+	const lbImg = lightbox.querySelector('.lightbox__img');
+	const lbClose = lightbox.querySelector('.lightbox__close');
+
+	function openLightbox(src, alt){
+		lbImg.src = src;
+		lbImg.alt = alt || '';
+		lightbox.classList.add('open');
+		lightbox.setAttribute('aria-hidden', 'false');
+		// trap focus on close button
+		lbClose.focus();
+	}
+
+	function closeLightbox(){
+		lightbox.classList.remove('open');
+		lightbox.setAttribute('aria-hidden', 'true');
+		lbImg.src = '';
+	}
+
+	// Click on images
+	grid.addEventListener('click', (e)=>{
+		const img = e.target.closest('img');
+		if(!img) return;
+		openLightbox(img.src, img.alt);
+	});
+
+	// Close handlers
+	lbClose.addEventListener('click', closeLightbox);
+	lightbox.addEventListener('click', (e)=>{
+		if(e.target === lightbox) closeLightbox();
+	});
+
+	// Keyboard support
+	document.addEventListener('keydown', (e)=>{
+		if(e.key === 'Escape') closeLightbox();
+		if((e.key === 'ArrowRight' || e.key === 'Right') && lightbox.classList.contains('open')){
+			// next image
+			const imgs = Array.from(grid.querySelectorAll('img'));
+			const idx = imgs.findIndex(i=>i.src === lbImg.src);
+			if(idx > -1 && idx < imgs.length - 1) openLightbox(imgs[idx+1].src, imgs[idx+1].alt);
+		}
+		if((e.key === 'ArrowLeft' || e.key === 'Left') && lightbox.classList.contains('open')){
+			const imgs = Array.from(grid.querySelectorAll('img'));
+			const idx = imgs.findIndex(i=>i.src === lbImg.src);
+			if(idx > 0) openLightbox(imgs[idx-1].src, imgs[idx-1].alt);
+		}
+	});
+
+	// Accessibility: add role
+	lightbox.setAttribute('role','dialog');
+	lightbox.setAttribute('aria-modal','true');
+})();

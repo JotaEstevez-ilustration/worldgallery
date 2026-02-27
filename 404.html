@@ -3,46 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Page not found — Redirecting…</title>
-  <!-- Fallback meta refresh (3s) to root -->
-  <meta http-equiv="refresh" content="3;url=/">
+  <meta name="robots" content="noindex">
+  <title>Page not found — Redirecting</title>
+  <!-- Immediate meta refresh fallback for non-JS clients -->
+  <meta http-equiv="refresh" content="0; url=/index.html#top">
   <style>
-    html,body{height:100%;margin:0}
-    body{display:flex;align-items:center;justify-content:center;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;color:#222;background:#f7f7f7}
-    .card{max-width:680px;padding:28px;border-radius:10px;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.08);text-align:center}
-    a.button{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:6px;background:#1a73e8;color:#fff;text-decoration:none}
-    small{color:#666}
+    :root{--bg:#f7f7fa;--fg:#222;--muted:#555}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans",sans-serif;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg)}
+    .card{text-align:center;padding:28px;border-radius:10px;background:#fff;box-shadow:0 6px 20px rgba(20,30,50,0.08);max-width:520px;margin:20px}
+    h1{font-size:28px;margin:0 0 8px}
+    p{margin:0 0 16px;color:var(--muted)}
+    a.button{display:inline-block;padding:10px 16px;border-radius:8px;background:#111;color:#fff;text-decoration:none;font-weight:600}
+    a.link{color:#0b66f6}
   </style>
+  <script>
+    // JavaScript redirect (preferred) — replace so browser history doesn't keep the 404 URL
+    (function(){
+      try{
+        var target = '/index.html#top';
+        // small delay to allow screen readers to announce message before navigation
+        setTimeout(function(){ window.location.replace(target); }, 100);
+      }catch(e){/* ignore */}
+    })();
+  </script>
 </head>
 <body>
   <main class="card" role="main">
-    <h1>404 — Page not found</h1>
-    <p>The address you entered doesn't exist. You will be redirected to the homepage shortly.</p>
-    <p><small>If the redirect doesn't happen, click the button below.</small></p>
-    <p><a class="button" href="/">Go to homepage</a></p>
-    <p><small>Redirecting now…</small></p>
+    <h1>Page not found</h1>
+    <p>The requested URL was not found on this server. You will be redirected to the home page.</p>
+    <p>If you are not redirected automatically, <a class="link" href="/index.html#top">click here to go to the home page</a>.</p>
+    <p style="margin-top:14px"><a class="button" href="/index.html#top">Go to home</a></p>
   </main>
-
-  <script>
-    (async function(){
-      // Try a relative index first (works when 404 is served from site root)
-      try{
-        const r = await fetch('index.html', {method: 'HEAD'});
-        if(r && r.ok){
-          // navigate to the index in the same directory (will land at top)
-          location.replace('index.html');
-          return;
-        }
-      }catch(e){/* ignore and try fallback */}
-
-      // Fallback: navigate to site root (loads index.html at top)
-      try{
-        location.replace(location.origin + '/');
-      }catch(e){
-        // As a last resort, a simple relative redirect
-        location.replace('/');
-      }
-    })();
-  </script>
 </body>
 </html>

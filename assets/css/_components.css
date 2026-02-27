@@ -170,3 +170,87 @@ footer a:hover {
 	color: var(--color-text-primary);
 	font-weight: var(--font-weight-medium);
 }
+
+/* ===== GALLERY COMPONENT ===== */
+.gallery {
+	margin-top: var(--space-lg);
+}
+
+.gallery h2 {
+	margin-bottom: var(--space-md);
+}
+
+.gallery .grid {
+	display: grid;
+	/* larger minimum column to make tiles bigger on small and medium screens */
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: var(--space-md);
+}
+
+.gallery .grid img {
+	width: 100%;
+	/* preserve aspect ratio instead of fixed height for better image fidelity */
+	aspect-ratio: 4 / 3;
+	height: auto;
+	object-fit: cover;
+	display: block;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border-light);
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery .grid img:hover,
+.gallery .grid img:focus {
+	transform: scale(1.03);
+	box-shadow: var(--shadow-md);
+	outline: none;
+}
+
+@media (min-width: 900px) {
+	/* use a wider aspect on larger screens for a more cinematic look */
+	.gallery .grid img { aspect-ratio: 16 / 10; }
+}
+
+/* ===== LIGHTBOX / FULLSCREEN IMAGE ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  object-fit: contain;
+}
+.lightbox__close {
+  position: absolute;
+  top: calc(var(--space-md));
+  right: calc(var(--space-md));
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: none;
+  padding: var(--space-sm);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.lightbox__close:focus { outline: 2px solid var(--color-primary); }
+
+@media (max-width: 600px) {
+  .lightbox { padding: var(--space-sm); }
+  .lightbox__close { top: 12px; right: 12px; }
+}
