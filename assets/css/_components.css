@@ -182,8 +182,8 @@ footer a:hover {
 
 .gallery .grid {
 	display: grid;
-	/* larger minimum column to make tiles bigger on small and medium screens */
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	/* responsive min column, but on larger screens force 3 columns */
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: var(--space-md);
 }
 
@@ -206,8 +206,10 @@ footer a:hover {
 	outline: none;
 }
 
+/* Force exactly 3 columns on medium+ screens */
 @media (min-width: 900px) {
-	/* use a wider aspect on larger screens for a more cinematic look */
+	.gallery .grid { grid-template-columns: repeat(3, 1fr); }
+	/* slightly wider aspect ratio on larger screens */
 	.gallery .grid img { aspect-ratio: 16 / 10; }
 }
 

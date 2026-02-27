@@ -14,8 +14,29 @@
 	justify-content: center;
 	/*background: var(--gradient-hero);*/
 	background-image: url(https://ik.imagekit.io/2xgzbkkv3/dibujo3.jpg?updatedAt=1770659593802);
+	/* fill the hero area (cover) so the image covers the block */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	/* darker fallback for contrast */
+	background-color: rgba(0,0,0,0.25);
 	text-align: center;
 	padding: var(--space-2xl);
+	position: relative;
+}
+
+/* add a subtle overlay to improve text legibility */
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+	z-index: 0;
+}
+
+.hero > div {
+	position: relative; /* keep text above overlay */
+	z-index: 1;
 }
 
 .hero h1 {
