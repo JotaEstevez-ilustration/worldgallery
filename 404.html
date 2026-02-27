@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Page not found — Redirecting…</title>
+  <!-- Fallback meta refresh (3s) to root -->
+  <meta http-equiv="refresh" content="3;url=/">
+  <style>
+    html,body{height:100%;margin:0}
+    body{display:flex;align-items:center;justify-content:center;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;color:#222;background:#f7f7f7}
+    .card{max-width:680px;padding:28px;border-radius:10px;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.08);text-align:center}
+    a.button{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:6px;background:#1a73e8;color:#fff;text-decoration:none}
+    small{color:#666}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>404 — Page not found</h1>
+    <p>The address you entered doesn't exist. You will be redirected to the homepage shortly.</p>
+    <p><small>If the redirect doesn't happen, click the button below.</small></p>
+    <p><a class="button" href="/">Go to homepage</a></p>
+    <p><small>Redirecting now…</small></p>
+  </main>
+
+  <script>
+    (async function(){
+      // Try a relative index first (works when 404 is served from site root)
+      try{
+        const r = await fetch('index.html', {method: 'HEAD'});
+        if(r && r.ok){
+          // navigate to the index in the same directory (will land at top)
+          location.replace('index.html');
+          return;
+        }
+      }catch(e){/* ignore and try fallback */}
+
+      // Fallback: navigate to site root (loads index.html at top)
+      try{
+        location.replace(location.origin + '/');
+      }catch(e){
+        // As a last resort, a simple relative redirect
+        location.replace('/');
+      }
+    })();
+  </script>
+</body>
+</html>
